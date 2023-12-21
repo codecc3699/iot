@@ -1,0 +1,25 @@
+int ldr;
+int ledpin = 13;
+
+void setup() {
+  pinMode(A0, INPUT);
+  pinMode(ledpin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  ldr = analogRead(A0);
+  Serial.println(ldr);
+
+  if (ldr >= 500) {
+    Serial.println("Darkness, Turning ON the LED");
+    digitalWrite(ledpin, HIGH);
+    Serial.println(ldr);
+  } else {
+    Serial.println("Sufficient light, Turning off the LED");
+    digitalWrite(ledpin, LOW);
+    Serial.println(ldr);
+  }
+
+  delay(1000);
+}
