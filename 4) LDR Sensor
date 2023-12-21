@@ -16,4 +16,6 @@ else
 Serial.println("sufficient");
 digitalWrite(A0,LOW);
 }
-d
+delay(500);
+}
+
