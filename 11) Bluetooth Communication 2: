@@ -1,0 +1,26 @@
+#include <SoftwareSerial.h>
+
+SoftwareSerial BTserial(11, 12);
+char sig = ' ';
+
+void setup() {
+  Serial.begin(9600);
+  BTserial.begin(9600);
+  pinMode(7, OUTPUT);
+}
+
+void loop() {
+  if (BTserial.available()) {
+    sig = BTserial.read();
+
+    if (sig == '1' || sig == 1) {
+      digitalWrite(7, HIGH);
+      Serial.println("LED is ON");
+      delay(600);
+    } else if (sig == '0' || sig == 0) {
+      digitalWrite(7, LOW);
+      Serial.println("LED is OFF");
+      delay(700);
+    }
+  }
+}
