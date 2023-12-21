@@ -1,0 +1,14 @@
+void setup() {
+  pinMode(3, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (digitalRead(3) == LOW) {
+    Serial.println("Obstacle Detected");
+    delay(500);
+  } else {
+    Serial.println("Obstacle not Detected");
+    delay(500);
+  }
+}
