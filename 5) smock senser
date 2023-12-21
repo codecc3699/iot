@@ -1,0 +1,18 @@
+int smokeAO = A0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int value = analogRead(smokeAO);
+  Serial.println("SmokeAO value is ");
+  Serial.println(value);
+
+  if (value >= 400) {
+    Serial.println("Smoke is detected");
+  } else {
+    Serial.println("Smoke is not detected");
+    delay(2000);
+  }
+}
