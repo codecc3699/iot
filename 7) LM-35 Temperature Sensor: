@@ -1,16 +1,16 @@
-const int lm_35 = A1;
+float temp;
 
 void setup() {
   Serial.begin(9600);
 }
 
 void loop() {
-  int adc_val;
-  float temp_val;
-  adc_val = analogRead(lm_35);
-  temp_val = (adc_val * 4.88) / 10.0;
-  Serial.print("Temperature=");
-  Serial.print(temp_val);
-  Serial.print("Degree Celsius\n");
+  temp = analogRead(A0);
+  temp = temp * 0.48828125;
+
+  Serial.print("TEMPERATURE: ");
+  Serial.print(temp);
+  Serial.println("*C");
+  
   delay(1000);
 }
